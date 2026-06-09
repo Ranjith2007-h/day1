@@ -1,26 +1,36 @@
-void main() {
-  List<int> marks = [80, 65, 95, 70, 88];
+class Product {
+  int id;
+  String name;
+  double price;
+  int quantity;
 
-  int highest = marks[0];
-  int lowest = marks[0];
-  int total = 0;
+  Product({
+    required this.id,
+    required this.name,
+    required this.price,
+    required this.quantity,
+  });
 
-  for (int mark in marks) {
-    total += mark;
-
-    if (mark > highest) {
-      highest = mark;
-    }
-
-    if (mark < lowest) {
-      lowest = mark;
-    }
+  double calculateTotalPrice() {
+    return price * quantity;
   }
 
-  double average = total / marks.length;
+  void displayProductDetails() {
+    print('ID: $id');
+    print('Name: $name');
+    print('Price: ₹$price');
+    print('Quantity: $quantity');
+    print('Total: ₹${calculateTotalPrice()}');
+  }
+}
 
-  print('Marks: $marks');
-  print('Highest Mark: $highest');
-  print('Lowest Mark: $lowest');
-  print('Average Mark: $average');
+void main() {
+  Product p = Product(
+    id: 101,
+    name: 'Laptop',
+    price: 50000,
+    quantity: 2,
+  );
+
+  p.displayProductDetails();
 }
