@@ -1,36 +1,47 @@
-class Product {
-  int id;
-  String name;
-  double price;
-  int quantity;
-
-  Product({
-    required this.id,
-    required this.name,
-    required this.price,
-    required this.quantity,
-  });
-
-  double calculateTotalPrice() {
-    return price * quantity;
-  }
-
-  void displayProductDetails() {
-    print('ID: $id');
-    print('Name: $name');
-    print('Price: ₹$price');
-    print('Quantity: $quantity');
-    print('Total: ₹${calculateTotalPrice()}');
-  }
-}
+import 'package:flutter/material.dart';
 
 void main() {
-  Product p = Product(
-    id: 101,
-    name: 'Laptop',
-    price: 50000,
-    quantity: 2,
-  );
+  runApp(const MyApp());
+}
 
-  p.displayProductDetails();
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Student Profile'),
+        ),
+        body: const Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Name: JITH',
+                style: TextStyle(fontSize: 24),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'College: RIT',
+                style: TextStyle(fontSize: 20),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Department: CSE',
+                style: TextStyle(fontSize: 20),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Favorite Language: Dart',
+                style: TextStyle(fontSize: 20),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
